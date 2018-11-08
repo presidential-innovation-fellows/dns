@@ -36,6 +36,14 @@ resource "aws_route53_record" "txt" {
   records = ["v=spf1 include:gsa.gov ~all"]
 }
 
+resource "aws_route53_record" "_github-challenge_pif_gov_txt" {
+ zone_id = "${aws_route53_zone.pif_toplevel.zone_id}"
+ name = "_github-challenge-presidential-innovation-fellows.pif.gov."
+ type = "TXT"
+ ttl = 60
+ records = ["aee614b605"]
+}
+
 resource "aws_route53_record" "asterisk_cname" {
   zone_id = "${aws_route53_zone.pif_toplevel.zone_id}"
   name = "*.pif.gov."
